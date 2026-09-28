@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Repair King – Professionelle Unfallreparatur, Smart Repair, Spot Repair und Lackierung in Hoppegarten bei Berlin. Hochwertige Fahrzeugaufbereitung mit Festpreisgarantie.">
+  <title>Smart Repair King | Professionelle Fahrzeugaufbereitung & Smart Repair | Hoppegarten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #161616;
+      --bg-elevated: #1c1c1c;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a3a3a3;
+      --text-muted: #737373;
+      --accent: #c9a961;
+      --accent-hover: #d4b978;
+      --accent-subtle: rgba(201, 169, 97, 0.12);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --header-height: 80px;
+      --header-height-scrolled: 64px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button, .btn {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 40px;
+      }
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      transition: all var(--transition);
+      background: transparent;
+    }
+
+    .header.scrolled {
+      height: var(--header-height-scrolled);
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: -0.02em;
+      z-index: 1001;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent) 0%, #a88b3d 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #0a0a0a;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .logo-text span:first-child {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: none;
+      align-items: center;
+      gap: 36px;
+    }
+
+    @media (min-width: 1024px) {
+      .nav {
+        display: flex;
+      }
+    }
+
+    .nav a {
+      font-size: 0.9375rem;
+      font-weight: 450;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text-primary);
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .header-cta {
+        display: inline-flex;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(201, 169, 97, 0.25);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-hover);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-secondary);
+      background: var(--glass);
+    }
+
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 28px;
+      background: none;
+      padding: 4px;
+      z-index: 1001;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--text-primary);
+      transition: all var(--transition);
+      transform-origin: center;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav a {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .mobile-nav .btn {
+      margin-top: 16px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.95) 100%),
+        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, transparent 0%, rgba(10,10,10,0.6) 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      padding: 120px 24px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: clamp(1.0625rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-8px); }
+      60% { transform: translateX(-50%) translateY(-4px); }
+    }
+
+    /* ========== SECTIONS COMMON ========== */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 120px 0;
+      }
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ========== SERVICES ========== */
+    .services {
+      background: var(--bg-secondary);
+    }
+
+    .services-header {
+      margin-bottom: 64px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-number {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ========== ABOUT ========== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+      }
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,169,97,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .stat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    /* ========== PROCESS ========== */
+    .process {
+      background: var(--bg-secondary);
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .process-header .section-lead {
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .process-steps {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 32px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      position: relative;
+      transition: all var(--transition);
+    }
+
+    .process-step:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-subtle);
+      border: 1px solid rgba(201, 169, 97, 0.3);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--accent);
+    }
+
+    .process-step h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========== BEFORE / AFTER ========== */
+    .before-after {
+      background: var(--bg-primary);
+      overflow: hidden;
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .ba-grid {
+        grid-template-columns: 1fr 1.05fr;
+        gap: 64px;
+      }
+    }
+
+    .ba-content .section-label {
+      margin-bottom: 20px;
+    }
+
+    .ba-content .section-title {
+      margin-bottom: 24px;
+    }
+
+    .ba-content .section-title .gold {
+      color: var(--accent);
+    }
+
+    .ba-desc {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .ba-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ba-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .ba-checklist li svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+
+    .ba-slider-wrap {
+      position: relative;
+    }
+
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      overflow: hidden;
+      user-select: none;
+      cursor: ew-resize;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+      background: var(--bg-card);
+    }
+
+    @media (min-width: 640px) {
+      .ba-slider {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .ba-slider {
+        aspect-ratio: 3 / 4;
+        max-height: 640px;
+      }
+    }
+
+    .ba-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .ba-img-before {
+      z-index: 2;
+      /* Show left half = Vorher (damaged). Right side reveals Nachher underneath */
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: rgba(255, 255, 255, 0.95);
+      z-index: 10;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .ba-handle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(20, 20, 20, 0.85);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      pointer-events: none;
+    }
+
+    .ba-handle-btn svg {
+      width: 22px;
+      height: 22px;
+      color: #fff;
+    }
+
+    .ba-label {
+      position: absolute;
+      top: 16px;
+      z-index: 5;
+      padding: 6px 14px;
+      background: rgba(20, 20, 20, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 6px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .ba-label-before {
+      left: 16px;
+    }
+
+    .ba-label-after {
+      right: 16px;
+    }
+
+    .ba-caption {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== GALLERY ========== */
+    .gallery-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--bg-card);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .gallery-overlay p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    /* ========== TRUST / WHY ========== */
+    .trust {
+      background: var(--bg-secondary);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .trust-grid {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+      }
+    }
+
+    .trust-features {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .trust-feature {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .trust-feature-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-subtle);
+      border-radius: 10px;
+      color: var(--accent);
+    }
+
+    .trust-feature h4 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .trust-feature p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .faq-header .section-lead {
+      margin: 0 auto;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--border-hover);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      background: none;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--accent);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition);
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact {
+      background: var(--bg-secondary);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 64px;
+      }
+    }
+
+    .contact-info h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-info > p {
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-detail-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--accent);
+    }
+
+    .contact-detail h4 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-detail a,
+    .contact-detail p {
+      font-size: 1rem;
+      color: var(--text-primary);
+      font-weight: 450;
+    }
+
+    .contact-detail a:hover {
+      color: var(--accent);
+    }
+
+    .contact-form-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .contact-form-wrapper {
+        padding: 48px 40px;
+      }
+    }
+
+    .contact-form-wrapper h3 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-wrapper > p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.9375rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-subtle);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      max-width: 300px;
+      line-height: 1.65;
+    }
+
+    .footer-col h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-col a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== UTILITIES ========== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Smooth reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#start" class="logo" aria-label="Smart Repair King Startseite">
+        <div class="logo-mark">SR</div>
+        <div class="logo-text">
+          <span>Smart Repair King</span>
+          <span>Hoppegarten</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#start" class="active">Startseite</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <a href="#kontakt" class="btn btn-primary header-cta">Termin vereinbaren</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#start">Startseite</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#kontakt" class="btn btn-primary btn-lg">Termin vereinbaren</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="start">
+    <div class="hero-bg" role="img" aria-label="Premium Fahrzeug Hintergrund"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Lackier- &amp; Karosseriefachbetrieb · Hoppegarten bei Berlin</div>
+      <h1>Professionelle Fahrzeugaufbereitung &amp; <span>Smart Repair</span></h1>
+      <p class="hero-lead">Hochwertige Unfallreparatur, Spot Repair und Lackierung – präzise, wirtschaftlich und mit verbindlichem Festpreis. Ihr Fahrzeug verdient Originalqualität.</p>
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn btn-primary btn-lg">Termin vereinbaren</a>
+        <a href="#leistungen" class="btn btn-secondary btn-lg">Unsere Leistungen</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Entdecken</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="leistungen">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-label">Leistungen</div>
+        <h2 class="section-title">Präzision in jeder Disziplin</h2>
+        <p class="section-lead">Von der punktgenauen Smart Repair bis zur vollständigen Unfallinstandsetzung – wir wählen die Methode, die für Ihren Schaden wirtschaftlich und optisch optimal ist.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-number">01</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <h3>Unfallreparatur</h3>
+          <p>Karosserie- und Lackschäden nach einem Unfall fachgerecht instand gesetzt – auf Wunsch inklusive Abstimmung mit Ihrer Versicherung.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">02</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <h3>Lackierung</h3>
+          <p>Teil- und Neulackierungen im exakten Originalfarbton – staubfrei in der eigenen Kabine, mit unsichtbaren Übergängen und Beilackierung.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">03</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <h3>Smart Repair</h3>
+          <p>Kratzer, Schrammen und Parkschäden punktuell repariert statt großflächig lackiert. Schnell, wirtschaftlich und nahezu unsichtbar.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">04</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3>Spot Repair</h3>
+          <p>Punktgenaue Lackierung kleinster Flächen – die elegante Lösung bei Steinschlägen und oberflächlichen Lackschäden.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">05</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+          <h3>Dellenentfernung</h3>
+          <p>Hagelschaden, Türkante oder Parkrempler: Dellen formgetreu entfernen – wo möglich ganz ohne Neulackierung.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-number">06</div>
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3>Politur &amp; Keramik</h3>
+          <p>Mehrstufige Lackaufbereitung mit optionaler Keramikversiegelung – für einen Tiefenglanz, der lange bleibt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="ueber-uns">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80" alt="Professionelle Lackierkabine und Karosseriearbeit" loading="lazy">
+        </div>
+        <div class="about-content reveal">
+          <div class="section-label">Über uns</div>
+          <h2 class="section-title">Handwerk, das man sehen kann</h2>
+          <p class="section-lead" style="margin-bottom: 24px;">Als Lackier- und Karosseriefachbetrieb in Hoppegarten verbinden wir klassisches Handwerk mit modernen Smart-Repair-Techniken. Jeder Auftrag wird ehrlich bewertet – und präzise umgesetzt.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.7;">Wir beraten transparent, welche Methode für Ihren Schaden wirtschaftlich sinnvoll ist: Smart Repair, Spot Repair oder klassische Lackierung. Ohne Überraschungen, mit verbindlichem Festpreis.</p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-value">24 h</div>
+              <div class="stat-label">Rückmeldung auf Ihr Foto</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">1 Tag</div>
+              <div class="stat-label">Viele Kleinschäden fertig</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100 %</div>
+              <div class="stat-label">Verbindlicher Festpreis</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">1:1</div>
+              <div class="stat-label">Originalfarbton &amp; Übergänge</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process" id="ablauf">
+    <div class="container">
+      <div class="process-header reveal">
+        <div class="section-label">Ablauf</div>
+        <h2 class="section-title">Vier Schritte zum Festpreis</h2>
+        <p class="section-lead">Einfach, transparent und ohne unnötige Werkstattbesuche. So läuft Ihre Reparatur bei uns ab.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-number">01</div>
+          <h3>Foto senden</h3>
+          <p>Fotografieren Sie den Schaden und senden Sie uns das Bild per WhatsApp – dauert keine Minute.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">02</div>
+          <h3>Festpreis erhalten</h3>
+          <p>Sie bekommen eine ehrliche Einschätzung mit verbindlichem Festpreis. Ohne Überraschungen.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">03</div>
+          <h3>Termin vereinbaren</h3>
+          <p>Meist noch in derselben Woche – auf Wunsch mit Ersatzmobilität für die Reparaturdauer.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-number">04</div>
+          <h3>Abholen &amp; losfahren</h3>
+          <p>Kleinschäden sind häufig am selben Tag fertig – selbstverständlich zum vereinbarten Preis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section class="before-after" id="vorher-nachher">
+    <div class="container">
+      <div class="ba-grid">
+        <div class="ba-content reveal">
+          <div class="section-label">02 — Vorher / Nachher</div>
+          <h2 class="section-title">Ziehen Sie den Regler.<br><span class="gold">Sehen Sie den Unterschied.</span></h2>
+          <p class="ba-desc">Streifschaden am Ford Mustang: Karosserie instand gesetzt, im Originalfarbton neu lackiert und auf Glanz gebracht. Ziehen Sie den Regler — beide Aufnahmen stammen aus diesem Kundenauftrag in unserem Betrieb.</p>
+          <ul class="ba-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Karosserie-Instandsetzung am Seitenteil
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Neulackierung im exakten Originalfarbton
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Finish mit unsichtbaren Übergängen
+            </li>
+          </ul>
+        </div>
+
+        <div class="ba-slider-wrap reveal">
+          <div class="ba-slider" id="baSlider" role="img" aria-label="Vorher-Nachher Vergleich Ford Mustang">
+            <!-- Nachher (clean) = full background -->
+            <img class="ba-img" src="https://smart-repair-king.de/assets/img/kunden/mustang-nachher.jpg" alt="Nachher: Ford Mustang nach der Reparatur" draggable="false">
+            <!-- Vorher (damaged) = clipped overlay from the left -->
+            <img class="ba-img ba-img-before" id="baBeforeImg" src="https://smart-repair-king.de/assets/img/kunden/mustang-vorher.jpg" alt="Vorher: Ford Mustang mit Streifschaden" draggable="false">
+
+            <div class="ba-label ba-label-before">VORHER</div>
+            <div class="ba-label ba-label-after">NACHHER</div>
+
+            <div class="ba-handle" id="baHandle">
+              <div class="ba-handle-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"/>
+                  <polyline points="9 18 15 12 9 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <p class="ba-caption">Echter Kundenauftrag aus unserem Betrieb in Hoppegarten</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="galerie">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <div>
+          <div class="section-label">Galerie</div>
+          <h2 class="section-title">Ergebnisse, die überzeugen</h2>
+          <p class="section-lead">Echte Einblicke aus unserem Betrieb in Hoppegarten – von der Karosseriearbeit bis zum finalen Finish.</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Lackierung in der Kabine" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Lackierung</h4>
+            <p>Staubfreie Kabine · Originalfarbton</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80" alt="Premium Fahrzeug nach Aufbereitung" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Fahrzeugaufbereitung</h4>
+            <p>Politur &amp; Keramikversiegelung</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Karosseriearbeit" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Karosserie-Instandsetzung</h4>
+            <p>Präzise Formwiederherstellung</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Detailarbeit am Lack" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Detailarbeit</h4>
+            <p>Unsichtbare Übergänge</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1542362567-b07e5434dfeb?auto=format&fit=crop&w=800&q=80" alt="Smart Repair Ergebnis" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Smart Repair</h4>
+            <p>Punktuelle Lackkorrektur</p>
+          </div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=800&q=80" alt="Werkstatt Ambiente" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Unser Betrieb</h4>
+            <p>Hoppegarten · Halle 121</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="trust" id="vertrauen">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="reveal">
+          <div class="section-label">Warum wir</div>
+          <h2 class="section-title">Vertrauen durch Transparenz</h2>
+          <p class="section-lead" style="margin-bottom: 0;">Wir versprechen nichts, was wir nicht halten können. Ehrliche Beratung, klare Preise und Ergebnisse, die den Originalzustand wiederherstellen.</p>
+        </div>
+        <div class="trust-features">
+          <div class="trust-feature reveal">
+            <div class="trust-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h4>Verbindlicher Festpreis</h4>
+              <p>Nach Foto-Einschätzung erhalten Sie einen verbindlichen Preis – ohne versteckte Kosten oder Nachforderungen.</p>
+            </div>
+          </div>
+          <div class="trust-feature reveal">
+            <div class="trust-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Schnelle Abwicklung</h4>
+              <p>Viele Kleinschäden sind noch am selben Tag fertig. Größere Aufträge terminieren wir klar und verbindlich.</p>
+            </div>
+          </div>
+          <div class="trust-feature reveal">
+            <div class="trust-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Originalqualität</h4>
+              <p>Farbton nach Herstellercode, Beilackierung und unsichtbare Übergänge – Sie sehen hinterher nicht, wo der Schaden war.</p>
+            </div>
+          </div>
+          <div class="trust-feature reveal">
+            <div class="trust-feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Zentral gelegen</h4>
+              <p>Hoppegarten direkt an der Berliner Stadtgrenze – wenige Minuten von Marzahn, Lichtenberg und dem östlichen Umland.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-header reveal">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Häufige Fragen</h2>
+        <p class="section-lead">Kurze Antworten auf die wichtigsten Punkte rund um Smart Repair, Lackierung und unseren Ablauf.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Was kostet Smart Repair oder eine Lackierung?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Das hängt vom konkreten Schaden ab. Senden Sie uns ein Foto per WhatsApp – wir schätzen Aufwand und Material ein und nennen Ihnen einen verbindlichen Festpreis, ganz ohne vorherigen Werkstattbesuch.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Übernehmen Sie auch Unfallreparaturen und Versicherungsschäden?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Ja. Die Instandsetzung von Unfallschäden an Karosserie und Lack gehört zu unseren Kernleistungen. Auf Wunsch stimmen wir die Reparatur direkt mit Ihrer Versicherung ab und begleiten Sie durch die Abwicklung.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Muss ich für eine Einschätzung vorbeikommen?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nein. Ein Foto des Schadens per WhatsApp genügt für eine erste fundierte Einschätzung inklusive Festpreis. Zu uns kommen Sie erst zum vereinbarten Reparaturtermin.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Was ist der Unterschied zwischen Smart Repair, Spot Repair und Lackierung?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Smart Repair behebt Kleinschäden wie Kratzer und kleine Dellen punktuell, ohne das ganze Bauteil zu lackieren. Spot Repair lackiert kleinste Flächen punktgenau nach – etwa bei Steinschlägen. Bei größeren oder tieferen Schäden lackieren wir das betroffene Teil vollständig im Originalfarbton. Wir beraten Sie ehrlich, welche Methode wirtschaftlich sinnvoll ist.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Übernehmen Sie auch Leasingrückgabe-Schäden?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Ja, das ist einer unserer häufigsten Aufträge. Kleinschäden vor der Rückgabe beheben zu lassen, ist in der Regel deutlich günstiger als die Nachberechnung des Leasinggebers.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            Wie lange dauert eine Reparatur?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Kleinschäden wie Kratzer oder Dellen sind häufig am selben Tag fertiggestellt. Eine Unfallinstandsetzung, komplette Lackierung oder Politur mit Keramikversiegelung benötigt je nach Umfang ein bis mehrere Tage – den genauen Termin stimmen wir vorab mit Ihnen ab.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="kontakt">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Kontakt</div>
+          <h2 class="section-title">Lassen Sie uns sprechen</h2>
+          <p>Senden Sie uns ein Foto Ihres Schadens oder vereinbaren Sie direkt einen Termin. Wir melden uns in der Regel innerhalb von 24 Stunden.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Adresse</h4>
+                <p>Lindenallee 47, Halle 121<br>15366 Hoppegarten</p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h4>Telefon / WhatsApp</h4>
+                <a href="tel:+4917632323422">0176 32323422</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h4>E-Mail</h4>
+                <a href="mailto:lackprofis@web.de">lackprofis@web.de</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4>Termine</h4>
+                <p>Nach Vereinbarung – oft noch in derselben Woche</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper reveal">
+          <h3>Anfrage senden</h3>
+          <p>Beschreiben Sie kurz Ihren Schaden oder laden Sie ein Foto hoch. Wir melden uns mit einer Einschätzung.</p>
+          
+          <!-- ВАЖНО: action="send.php" и enctype="multipart/form-data" для загрузки фото -->
+          <form id="contactForm" action="send.php" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Ihr Name" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Ihre Telefonnummer" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="service">Gewünschte Leistung</label>
+              <select id="service" name="service">
+                <option value="">Bitte wählen…</option>
+                <option value="smart-repair">Smart Repair</option>
+                <option value="spot-repair">Spot Repair</option>
+                <option value="lackierung">Lackierung</option>
+                <option value="unfall">Unfallreparatur</option>
+                <option value="dellen">Dellenentfernung</option>
+                <option value="politur">Politur / Keramik</option>
+                <option value="leasing">Leasingrückgabe-Check</option>
+                <option value="sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Nachricht / Schadenbeschreibung *</label>
+              <textarea id="message" name="message" required placeholder="Beschreiben Sie den Schaden oder stellen Sie Ihre Frage…"></textarea>
+            </div>
+            
+            <!-- НОВОЕ ПОЛЕ: Загрузка фото -->
+            <div class="form-group">
+              <label for="photo">Foto hochladen (optional)</label>
+              <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg form-submit">Anfrage absenden</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#start" class="logo">
+            <div class="logo-mark">SR</div>
+            <div class="logo-text">
+              <span>Smart Repair King</span>
+              <span>Hoppegarten</span>
+            </div>
+          </a>
+          <p>Professionelle Unfallreparatur, Smart Repair und Lackierung in Hoppegarten bei Berlin. Präzision, Transparenz und Originalqualität.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#start">Startseite</a></li>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+4917632323422">0176 32323422</a></li>
+            <li><a href="mailto:lackprofis@web.de">lackprofis@web.de</a></li>
+            <li>Lindenallee 47, Halle 121<br>15366 Hoppegarten</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Smart Repair King. Alle Rechte vorbehalten.</span>
+        <span>Lackier- &amp; Karosseriefachbetrieb · Hoppegarten bei Berlin</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    const onScroll = () => {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = mobileNav.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuToggle.classList.toggle('active', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      mobileNav.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    const updateActiveNav = () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (scrollY >= top && scrollY < top + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    };
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Reveal on scroll
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Реальная отправка формы на /send
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Wird gesendet…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/send', {
+          method: 'POST',
+          body: new FormData(form)
+        });
+        if (!res.ok) throw new Error('Server error');
+
+        btn.textContent = 'Anfrage gesendet ✓';
+        btn.style.background = '#4ade80';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.disabled = false;
+          btn.style.background = '';
+        }, 3000);
+      } catch (err) {
+        btn.textContent = 'Fehler — erneut versuchen';
+        btn.style.background = '#ef4444';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.disabled = false;
+          btn.style.background = '';
+        }, 3000);
+      }
+    });
+
+    // Before / After slider
+    (function () {
+      const slider = document.getElementById('baSlider');
+      const beforeImg = document.getElementById('baBeforeImg');
+      const handle = document.getElementById('baHandle');
+      if (!slider || !beforeImg || !handle) return;
+
+      let isDragging = false;
+
+      const setPosition = (clientX) => {
+        const rect = slider.getBoundingClientRect();
+        let x = clientX - rect.left;
+        x = Math.max(0, Math.min(x, rect.width));
+        const percent = (x / rect.width) * 100;
+        // clip left portion = Vorher
+        beforeImg.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+        handle.style.left = percent + '%';
+      };
+
+      const startDrag = (e) => {
+        isDragging = true;
+        slider.style.cursor = 'ew-resize';
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        setPosition(clientX);
+      };
+
+      const onDrag = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        setPosition(clientX);
+      };
+
+      const endDrag = () => {
+        isDragging = false;
+      };
+
+      slider.addEventListener('mousedown', startDrag);
+      window.addEventListener('mousemove', onDrag);
+      window.addEventListener('mouseup', endDrag);
+
+      slider.addEventListener('touchstart', startDrag, { passive: true });
+      window.addEventListener('touchmove', onDrag, { passive: false });
+      window.addEventListener('touchend', endDrag);
+
+      // Keyboard accessibility
+      slider.setAttribute('tabindex', '0');
+      slider.addEventListener('keydown', (e) => {
+        const rect = slider.getBoundingClientRect();
+        const current = parseFloat(handle.style.left) || 50;
+        if (e.key === 'ArrowLeft') {
+          setPosition(rect.left + ((current - 3) / 100) * rect.width);
+        } else if (e.key === 'ArrowRight') {
+          setPosition(rect.left + ((current + 3) / 100) * rect.width);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
